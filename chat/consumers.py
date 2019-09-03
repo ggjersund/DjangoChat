@@ -3,6 +3,7 @@ from channels.generic.websocket import WebsocketConsumer
 import json
 
 class ChatConsumer(WebsocketConsumer):
+
     def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'chat_%s' % self.room_name
@@ -13,12 +14,13 @@ class ChatConsumer(WebsocketConsumer):
             self.channel_name
         )
         self.accept()
-        self.send(text_data=json.dumps({
-            'message': "Chat channel entered!"
+        self.send(text_data = json.dumps({
+            'message': "Welcome to the chat channel!"
         }))
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
+                'type': 'message'
                 'message': 'A new user joined your channel!'
             }
         )
@@ -32,6 +34,7 @@ class ChatConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
+                'type': 'message',
                 'message': 'A user left your channel!'
             }
         )
@@ -46,6 +49,7 @@ class ChatConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
+                'type': 'message',
                 'user': user,
                 'message': message
             }
@@ -53,11 +57,14 @@ class ChatConsumer(WebsocketConsumer):
 
     # Receive message from room group
     def chat_message(self, event):
+
         user = event['user']
         message = event['message']
 
-        # Send message to WebSocket (to all users)
-        self.send(text_data=json.dumps({
-            'user': user,
-            'message': message
-        }))
+        # Send message to WebSocket
+        self.send(text_data = json.dumps(
+            {
+                'user': user,
+                'message': message
+            }
+        ))
