@@ -19,7 +19,7 @@ DEBUG = False
 
 SECRET_KEY = '=i_w!*xmafnf%pon@#rrv_@-=n@lb8og-g_y7e2-gbot9@pd7j'
 
-ALLOWED_HOSTS = ['infinite-cliffs-84014.herokuapp.com']
+ALLOWED_HOSTS = ['immense-reef-39603.herokuapp.com']
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
