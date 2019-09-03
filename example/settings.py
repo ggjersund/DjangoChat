@@ -17,6 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = False
 
+SECRET_KEY = '=i_w!*xmafnf%pon@#rrv_@-=n@lb8og-g_y7e2-gbot9@pd7j'
+
 ALLOWED_HOSTS = ['infinite-cliffs-84014.herokuapp.com']
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
@@ -32,17 +34,6 @@ CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'
 
 PREPEND_WWW = True
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=i_w!*xmafnf%pon@#rrv_@-=n@lb8og-g_y7e2-gbot9@pd7j'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
