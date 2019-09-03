@@ -8,6 +8,7 @@ pipenv = "*"
 django = "*"
 channels = "*"
 daphne = "*"
+channels-redis = "*"
 
 [dev-packages]
 
