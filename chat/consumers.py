@@ -20,7 +20,7 @@ class ChatConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
-                'type': 'message'
+                'type': 'message',
                 'message': 'A new user joined your channel!'
             }
         )
