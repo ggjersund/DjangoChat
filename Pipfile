@@ -7,6 +7,7 @@ name = "pypi"
 pipenv = "*"
 django = "*"
 channels = "*"
+daphne = "*"
 
 [dev-packages]
 
